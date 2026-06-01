@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8d3eec93-2582-4a6e-ae4b-55e0bc5dcf8e" name="wang_lab">
+        <fileTransfer accessType="SFTP" host="192.168.10.9" port="22" sshConfigId="19ceeaaf-eacd-4801-890b-5b74abedb140" sshConfig="shilei@192.168.10.9:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="00558580-aafb-4a10-a960-6113f4e34a66" name="Aliyun">
+        <fileTransfer accessType="SFTP" host="8.140.239.104" port="22" sshConfigId="14ee0213-c46c-43d6-9df8-5f29496928d6" sshConfig="root@8.140.239.104:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

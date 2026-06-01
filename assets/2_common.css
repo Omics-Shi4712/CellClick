@@ -1,0 +1,50 @@
+*{
+	margin: 0;
+	padding: 0;
+    font-family:  "Arial", "黑体";
+	font-size: 19px;
+}
+
+/*块状元素居中*/
+.center_block_hor{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.center_block_ver{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.center_block{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*长度自适应, 左右 padding 5px*/
+.width_adjust{
+    padding: 0 5px 0 5px;
+    width: max-content;
+}
+
+.init_padding{
+    padding: 0px 0px;
+}
+
+.init_margin{
+    margin: 0px 0px;
+}
+
+/*
+    in dash dropdown bootstrap, the style of Select-control is same with dropdown component,
+    when pass a absolute value, it shows no problem
+    but if pass a relative value, it seems strange
+    for example, set 50% width to dropdown component,  Select-control's width is 50%*50%
+*/
+.Select-control{
+    width: 100% !important;
+}

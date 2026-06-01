@@ -1,0 +1,420 @@
+{
+	"Data Settings": {
+		"overview": "",
+		"forms": {
+			"Upload": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Data Source": "",
+						"Local Data": "",
+						"History Data": "",
+						"Current Data": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"Remove": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Current ID": "",
+						"Data ID": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"Change": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Current ID": "",
+						"Data ID": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"Annotation Type": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Annotation": "",
+						"Data Type": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			}
+		}
+	},
+	"Preprocessing": {
+		"overview": "",
+		"forms": {
+			"QC": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Attributes": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"Normalization": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Target Sum": "",
+						"Exclude Highly Expressed": "",
+						"Log1P": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"HVG Detection": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Flavor": "",
+						"Top Genes": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"Dimension Reduction": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Method": "",
+						"N PCs": "",
+						"N Neighbors": "",
+						"Min Dist": "",
+						"Metric": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"Cell Clustering": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Preprocessed": "",
+						"Reference": "",
+						"Method": "",
+						"Resolution": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			}
+		}
+	},
+	"Data Visualization": {
+		"overview": "",
+		"forms": {
+			"Cell Embedding": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Embedding": "",
+						"Annotation": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"Gene Embedding": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Gene Name": "",
+						"Embedding": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"Gene Dot": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Gene Name": "",
+						"Annotation": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			}
+		}
+	},
+	"Gene Analysis": {
+		"overview": "",
+		"forms": {
+			"Marker Gene Identification": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Annotation": "",
+						"Group A": "",
+						"Group B": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"Marker Gene Evaluation": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Marker Source": "",
+						"Species": "",
+						"Cluster Name": "",
+						"Gene Number": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"Marker Gene Scoring": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Marker Source": "",
+						"Source Name": "",
+						"Cell Cluster": "",
+						"Gene Number": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			}
+		}
+	},
+	"Cell Reannotation": {
+		"overview": "",
+		"forms": {
+			"Reannotation": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Raw Name": "",
+						"New Name": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"Re-cluster": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Cluster": "",
+						"Prefix": "",
+						"Method": "",
+						"Resolution": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"Merge Data": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Ref Data": "",
+						"Other Data": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			},
+			"Visualization": {
+				"overview": {
+					"img": "",
+					"description": ""
+				},
+				"form introduction": {
+					"img": "",
+					"inputs": {
+						"Cluster Name": ""
+					}
+				},
+				"example": [
+					{
+						"video": "",
+						"title": "",
+						"description": ""
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,1 @@
+{"B cell": ["CD79A", "MZB1"], "CD8-positive, alpha-beta T cell": ["CTLA4", "LAG3", "PDCD1"], "alternatively activated macrophage": ["CD163", "CD163", "MRC1", "IL10"], "endothelial cell": ["CD34", "PECAM1"], "epithelial cell": ["EPCAM"], "mast cell": ["KIT", "TPSAB1"], "mesenchymal cell": ["COL1A1", "PDGFRB"], "myeloid cell": ["CD14", "CD163"], "regulatory T cell": ["FOXP3"]}

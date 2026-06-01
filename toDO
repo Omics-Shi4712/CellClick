@@ -1,0 +1,9 @@
+1) using lock to optimal CellClick functions related to adata preprocessing
+2) the bug for rollback # seems the calculation of level_0
+3) Cell Selection error when change table content to gene expression
+4) Document for CellClick
+5) More than 2 datasets -> Annotation Update Error
+
+* Re-annotation module re-design
+*
+

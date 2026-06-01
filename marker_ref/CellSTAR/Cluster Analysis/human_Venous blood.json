@@ -1,0 +1,1 @@
+{"B cell": ["CD19", "CD19", "CD27", "CD79A", "CD79B", "CR2", "MME"], "T cell": ["CD2", "CD3D", "CD3E"], "megakaryocyte progenitor cell": ["PLA2G12A"], "memory B cell": ["MME", "CD19", "MS4A1", "CR2", "CD27"], "natural killer cell": ["NCAM1", "KLRD1", "NCR3", "NKG7"], "plasma cell": ["CD27", "CD38"], "plasmacytoid dendritic cell": ["CLEC4C", "IL3RA"]}

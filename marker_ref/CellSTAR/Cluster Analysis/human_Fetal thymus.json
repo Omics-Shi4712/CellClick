@@ -1,0 +1,1 @@
+{"T cell": ["CD1B", "CD3D", "CD3G", "LCK", "TRBC2"], "dendritic cell": ["BATF3", "CLEC9A"], "endothelial cell": ["CDH5", "PECAM1"], "epithelial cell": ["EPCAM", "KRT17", "KRT19", "KRT5", "KRT8"], "macrophage": ["CD14", "CLEC10A"], "mast cell": ["CPA3", "HDC", "TPSAB1"], "mesenchymal cell": ["COL1A2", "PDGFRA"], "progenitor cell": ["SPINK2"], "stem cell": ["CD34"]}
