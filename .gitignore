@@ -1,1 +1,8 @@
 **/*.h5ad
+
+
+.gitignore
+
+./test.py
+./toDO
+./main_pyqt5.py
