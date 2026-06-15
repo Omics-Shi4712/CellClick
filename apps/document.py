@@ -8,10 +8,10 @@ document = {
 					"description": """
 						CellClick is a web-based data analysis platform with interactive functions specialized for cell type 
 						identification from single-cell omics and spatial omics data. CellClick takes different types of single-cell or 
-						spatial omics sequencing data (either preprocessed or un-preprocessed ) stored in the Scanpy-supported formats (e.g. h5ad format) as inputs. 
-						The major feature of CellClick is to provide multiple interactive functions for users to visualize, analysis, evaluate, re-annotate or re-cluster cells. 
+						spatial omics sequencing data (either preprocessed or unpreprocessed) stored in Scanpy-supported formats (e.g. h5ad) as input. 
+						The major feature of CellClick is to provide multiple interactive functions for users to visualize, analyze, evaluate, re-annotate, or re-cluster cells. 
 						It also allows parallel comparison of the analysis results across genes, cell clusters, or datasets, which is absent in most currently available software. 
-						CellClick provides the above-mentioned functions in five modules, namely Preprocessing, Data Visualization, Cell Annotation, Annotation Evaluation, and Cell Reannotation module.
+						CellClick provides the above-mentioned functions in five modules: Preprocessing, Data Visualization, Cell Annotation, Annotation Evaluation, and Cell Reannotation.
 					"""
 				},
 				"form introduction": {
@@ -36,15 +36,16 @@ document = {
 				"form introduction": {
 					"img": "../assets/image/document_datasettings_upload.png",
 					"inputs": {
-						"Data Source": "Define the data source of data to upload.",
+						"Data Source": "Define the data source for the dataset to upload.",
 						"Local Data": "Upload the dataset from local storage. Visible when 'Data Source' is set to 'Local Data'.",
-						"History Data": "Upload the dataset which has been analysed with CellClick. Visible when 'Data Source' is set to 'History Data'.",
+						"History Data": "Upload the dataset that has been analyzed with CellClick. Visible when 'Data Source' is set to 'History Data'.",
+						"Current Data": "Reuse the dataset already loaded in the current CellClick session. Visible when 'Data Source' is set to 'Current Data'.",
 					}
 				},
 				"example": [
 					{
 						"video": "../assets/video/document_datasettings_upload_localdata.mp4",
-						"title": "Upload data by local data",
+						"title": "Upload data from local storage",
 						"description": """
 							By clicking the 'Upload Data' button, you can upload your dataset directly from your local storage. 
 							CellClick will assign a unique CellClick ID to each uploaded dataset via the 'Local Data' method.
@@ -52,7 +53,7 @@ document = {
 					},
 					{
 						"video": "../assets/video/document_datasettings_upload_historydata.mp4",
-						"title": "Upload data by history data",
+						"title": "Upload data from history data",
 						"description": "CellClick will store the uploaded dataset and allow you to re-upload it via the 'History Data' method."
 					},
 				]
@@ -60,7 +61,7 @@ document = {
 			"Remove": {
 				"overview": {
 					"img": "",
-					"description": "CellClick sets the maximum (5 by default) for uploading dataset. this function allows you to remove dataset from CellClick."
+					"description": "CellClick sets a maximum number of uploaded datasets (5 by default). This function allows you to remove a dataset from CellClick."
 				},
 				"form introduction": {
 					"img": "../assets/image/document_datasettings_remove.png",
@@ -108,7 +109,7 @@ document = {
 				"form introduction": {
 					"img": "../assets/image/document_datasettings_annotationtype.png",
 					"inputs": {
-						"Annotation": "The name of annotation.",
+						"Annotation": "The name of the annotation.",
 						"Data Type": "The data type of the annotation."
 					}
 				},
@@ -177,7 +178,7 @@ document = {
 					"img": "../assets/image/document_preprocessing_normalization.png",
 					"inputs": {
 						"Target Sum": "The total counts over all genes to normalize each cell.",
-						"Exclude Highly Expressed": "Whether to exclude very highly expressed genes when normalize each cell.",
+						"Exclude Highly Expressed": "Whether to exclude very highly expressed genes when normalizing each cell.",
 						"Log1P": "Whether to logarithmize the normalized counts matrix."
 					}
 				},
@@ -185,7 +186,7 @@ document = {
 					{
 						"video": "../assets/video/document_preprocessing_NHD.mp4",
 						"title": "The normalization, HVG detection, and dimension reduction analysis in CellClick",
-						"description": "You will be informed by the Alter component if the analysis is completed."
+						"description": "You will be informed by the Alert component when the analysis is complete."
 					}
 				]
 			},
@@ -214,7 +215,7 @@ document = {
 					{
 						"video": "../assets/video/document_preprocessing_NHD.mp4",
 						"title": "The normalization, HVG detection, and dimension reduction analysis in CellClick",
-						"description": "You will be informed by the Alter component if the analysis is completed."
+						"description": "You will be informed by the Alert component when the analysis is complete."
 					}
 				]
 			},
@@ -222,7 +223,7 @@ document = {
 				"overview": {
 					"img": "",
 					"description": [
-						"Reduce the data dimension and embed cells into 2-dimensional space. Refer to the functions from the ",
+						"Reduce the dimensionality of the data and embed cells into two-dimensional space. Refer to the functions from ",
 						{
 							"component": "a",
 							"kwargs": {
@@ -255,7 +256,7 @@ document = {
 					{
 						"video": "../assets/video/document_preprocessing_NHD.mp4",
 						"title": "The normalization, HVG detection, and dimension reduction analysis in CellClick",
-						"description": "You will be informed by the Alter component if the analysis is completed."
+						"description": "You will be informed by the Alert component when the analysis is complete."
 					}
 				]
 			},
@@ -288,16 +289,16 @@ document = {
 					]
 				},
 				"form introduction": {
-					"img": "../assets/image/document_preprocessing_cellclustering.png",
-					"inputs": {
-						"Preprocessed": """
-							'Custom' and 'CellClic' are available in this input. 'Custom' means preprocessed data, while 'CellClick' means un-preprocessed data.
+						"img": "../assets/image/document_preprocessing_cellclustering.png",
+						"inputs": {
+							"Preprocessed": """
+							'Custom' and 'CellClick' are available in this input. 'Custom' means preprocessed data, while 'CellClick' means unpreprocessed data.
 						""",
-						"Reference": "The column name of original annotation result stored in adata.obs. Visible when setting 'Processed By' as 'Custom'.",
-						"Method": "Leiden or Louvain algorithm used to cluster cell. Visible when setting 'Processed By' as 'CellClick'.",
-						"Resolution": "The resolution for cell clustering results. Visible when setting 'Processed By' as 'CellClick'."
-					}
-				},
+							"Reference": "The column name of original annotation result stored in adata.obs. Visible when setting 'Processed By' as 'Custom'.",
+							"Method": "The Leiden or Louvain algorithm used to cluster cells. Visible when setting 'Processed By' as 'CellClick'.",
+							"Resolution": "The resolution for cell clustering results. Visible when setting 'Processed By' as 'CellClick'."
+						}
+					},
 				"example": [
 					{
 						"video": "",
@@ -333,7 +334,7 @@ document = {
 							You can select cells in the embedding results via box selection or lasso selection tools, 
 							then employ the selected cells for different downstream analysis. 
 							By clicking on the legend icon of each cell cluster, the target cell cluster can be hidden or redisplayed, 
-							thus facilitate you to visualize and select specific cell sets more accurately.
+							thus helping you visualize and select specific cell sets more accurately.
 						"""
 					}
 				]
@@ -356,14 +357,14 @@ document = {
 					{
 						"video": "../assets/video/document_datavisulization_geneembedding.mp4",
 						"title": "Gene embedding",
-						"description": "The expression profile of the target gene is showed in the embedding space."
+						"description": "The expression profile of the target gene is shown in the embedding space."
 					}
 				]
 			},
 			"Gene Dot": {
 				"overview": {
 					"img": "",
-					"description": "This function visualize the expression of multiple genes, which provides statistical evidence for cell type identification."
+					"description": "This function visualizes the expression of multiple genes, which provides statistical evidence for cell type identification."
 				},
 				"form introduction": {
 					"img": "../assets/image/document_datavisualization_genedot.png",
@@ -376,7 +377,7 @@ document = {
 					{
 						"video": "../assets/video/document_datavisulization_genedot.mp4",
 						"title": "Gene dot",
-						"description": "In the dot plot, you can add or delete gene in 'Gene Name' input."
+						"description": "In the dot plot, you can add or delete genes in the 'Gene Name' input."
 					}
 				]
 			}
@@ -391,11 +392,11 @@ document = {
 			"Marker Gene Identification": {
 				"overview": {
 					"img": "",
-					"description": [
-						"""
-							Marker gene identification is a basic and crucial step for single-cell or spatial omics sequencing data analysis. 
-							To facilitate fast and accurate marker gene identification, CellClick implemented 
-						""",
+						"description": [
+							"""
+								Marker gene identification is a basic and crucial step for single-cell or spatial omics sequencing data analysis. 
+								To facilitate fast and accurate marker gene identification, CellClick implements 
+							""",
 						{
 							"component": "a",
 							"kwargs": {
@@ -411,11 +412,11 @@ document = {
 					"inputs": {
 						"Annotation": "The key of the cell groups in adata.obs.",
 						"Group A": """
-							The cell group(s) for marker gene identification. If 'selected', CellClick will identify the marker gene for selected cells and group B. 
-							If 'all', 'none' is the only valid value for the groupB and CellClick will identify the marker gene for each cell group.
+							The cell group(s) for marker gene identification. If 'selected', CellClick will identify marker genes for selected cells and Group B. 
+							If 'all', 'none' is the only valid value for Group B, and CellClick will identify marker genes for each cell group.
 						""",
 						"Group B": """
-							The reference cell group(s) for marker gene identification. If 'rest', CellClick will compare the groupA with all other cells. 
+							The reference cell group(s) for marker gene identification. If 'rest', CellClick will compare Group A with all other cells. 
 							If 'none', CellClick will identify the marker gene for each cell group in the group A.
 						"""
 					}
@@ -425,7 +426,7 @@ document = {
 						"video": "../assets/video/document_AE_MGI.mp4",
 						"title": "Marker gene identification",
 						"description": """
-							Only when the group buttons are both inactive, is the submit button accessible to click. 
+							Only when both group buttons are inactive is the submit button available to click. 
 							When the group button is inactive, the group input is disabled. 
 							The Group B button is inactive when the Group A button is active. 
 						"""
@@ -436,8 +437,8 @@ document = {
 				"overview": {
 					"img": "",
 					"description": """
-						Cell Identification function provides a fast method to annotate cell type based on identified marker genes and reference marker genes, 
-						which considers the percent of information used for querying and the sum of confidence calculated by the specificity and sensitivity of identified marker genes. 
+						The Cell Identification function provides a fast method to annotate cell types based on identified marker genes and reference marker genes. 
+						It considers the percentage of information used for querying and the total confidence calculated from the specificity and sensitivity of identified marker genes. 
 						For more accurate cell identification, the Cell Identification function generates a dot plot to visualize the expression pattern of identified marker genes 
 						and the overlap between identified marker genes and reference marker genes.
 					"""
@@ -446,9 +447,9 @@ document = {
 					"img": "../assets/image/document_AE_MGE.png",
 					"inputs": {
 						"Marker Source": "The source of the reference marker genes.",
-						"Species": "Obtain the reference marker genes from the special species.",
+						"Species": "Obtain the reference marker genes from the specified species.",
 						"Cluster Name": "The cell cluster for Cell Identification function.",
-						"Gene Number": "The counts of identified marker gene used for Cell Identification function."
+						"Gene Number": "The number of identified marker genes used for the Cell Identification function."
 					}
 				},
 				"example": [
@@ -470,7 +471,7 @@ document = {
 	"Evaluation and Validation": {
 		"overview": """
 			The Annotation Validation module includes Annotation Evaluation and Reference Comparison functions, 
-			which allows users to evaluation the cell annotation results.
+			which allows users to evaluate cell annotation results.
 		""",
 		"forms": {
 			"Annotation Evaluation": {
@@ -485,7 +486,7 @@ document = {
 					"img": "",
 					"inputs": {
 						"Cell Cluster": "The cell cluster for Annotation Evaluation function.",
-						"Gene Number": "The counts of identified marker gene used for Annotation Evaluation function.",
+						"Gene Number": "The number of identified marker genes used for the Annotation Evaluation function.",
 						"Embedding": "The space name used to embed cells."
 					}
 				},
@@ -503,8 +504,8 @@ document = {
 					"description": """
 						The Reference Comparison function measures the similarity based on gene similarity, relative expression specificity, 
 						and expression abundance difference between identified marker genes and suggested marker genes. 
-						Similar to the Cell Identification function, Reference Comparison function also provides the dot plot for users to 
-						evaluate the results the confidence of the Reference Comparison function results, which shows the expression pattern of suggested marker genes.
+						Similar to the Cell Identification function, the Reference Comparison function also provides a dot plot for users to 
+						evaluate the confidence of the results, which shows the expression pattern of suggested marker genes.
 					"""
 				},
 				"form introduction": {
@@ -513,11 +514,11 @@ document = {
 						"Marker Source": """
 							Besides pre-uploaded marker gene reference, CellClick allows custom marker gene reference formatted as JSON file. 
 							You can store it in the 'marker_ref/Other' directory and select 'Other'. 
-							And, you can also select other uploaded data by selecting 'Upload Data' and identify its marker genes as marker gene reference.
+							You can also select other uploaded data by choosing 'Upload Data' and identify its marker genes as a marker gene reference.
 						""",
 						"Source Name": "The tissue name, custom marker gene reference name, or data ID for cluster evaluation.",
 						"Cell Cluster": "The cell cluster for cluster evaluation.",
-						"Gene Number": "The number of reference marker gene used used for cluster evaluation."
+						"Gene Number": "The number of reference marker genes used for cluster evaluation."
 					}
 				},
 				"example": [
@@ -546,10 +547,10 @@ document = {
 				"overview": {
 					"img": "",
 					"description": """
-						Cell reannotation requires the accurate selection for a special cell set, 
+						Cell reannotation requires accurate selection of a specific cell set, 
 						which relies on many factors, such as cell cluster, gene expression, and coordinate information in embedding space, 
 						and remains a challenge in most available software. 
-						CellClick has developed two cell selection methods with cell visualization result and cell table.
+						CellClick has developed two cell selection methods with cell visualization results and a cell table.
 					"""
 				},
 				"form introduction": {
@@ -557,7 +558,7 @@ document = {
 					"inputs": {
 						"Embedding": "The space name used to embed cells.",
 						"Annotation": "The annotation to group cells.",
-						"Table Content": "Metadata or gene expression showed in Cell Table.",
+						"Table Content": "Metadata or gene expression shown in the Cell Table.",
 					}
 				},
 				"example": [
@@ -567,7 +568,7 @@ document = {
 						"description": """
 							You can select cells in the embedding results via box selection or lasso selection icons, 
 							then employ the selected cells for different downstream analysis. By clicking on the legend icon of each cell cluster, 
-							the target cell cluster can be hidden or redisplayed, thus facilitate you to visualize and select specific cell sets more accurately.
+							the target cell cluster can be hidden or redisplayed, thus helping you visualize and select specific cell sets more accurately.
 						"""
 					},
 					{
@@ -575,8 +576,8 @@ document = {
 						"title": "Cell Table Introduction",
 						"description": """
 							Cell Table is an interactive table for cell querying based on cell attributes. 
-							You can show the data frame stored in adata.obs or adata.X by change the value of 'Table Content' input. 
-							And you are allowed to add or remove column of showing information by 'Add Column' and 'Remove Column' input.
+							You can show the data frame stored in adata.obs or adata.X by changing the value of the 'Table Content' input. 
+							You can also add or remove columns from the displayed information by using the 'Add Column' and 'Remove Column' inputs.
 						"""
 					},
 					{
@@ -592,8 +593,8 @@ document = {
 						"title": "Cell selection flow in CellClick",
 						"description": """
 							The selection results can be fixed with 'Fix Selection' button, and then be merged with novel cell selection results. 
-							The calculation of difference, union, and intersection set between two cell selection results 
-							are supported by CellClick with plus, minus, and heart button.
+							CellClick supports the difference, union, and intersection between two cell selection results 
+							with the plus, minus, and heart buttons.
 						"""
 					}
 				]
@@ -621,27 +622,27 @@ document = {
 			"Re-cluster": {
 				"overview": {
 					"img": "",
-					"description": "You are allowed to re-cluster the target cell set with the Re-clustering function."
+					"description": "You can re-cluster the target cell set with the Re-clustering function."
 				},
 				"form introduction": {
 					"img": "../assets/image/document_CR_recluster.png",
 					"inputs": {
 						"Cluster": "The cell cluster to re-cluster. If 'selected', CellClick will re-cluster the selected cells.",
-						"Dimension Reduction": "Display or hide the inputs about dimension reduction. If un-active, dimension reduction analysis will be disabled.",
+						"Dimension Reduction": "Display or hide the inputs for dimension reduction. If inactive, dimension reduction analysis will be disabled.",
 						"dimension_Method": "The method to reduce dimension and embed cells, including PCA, t-SNE, and UMAP.",
 						"N PCs": "The number of PC used for PCA and the calculation of KNN graph (Method='UMAP').",
 						"N Neighbors": "The size of local neighborhood used for UMAP. Visible when setting 'Method' as 'UMAP'.",
 						"Min Dist": "The effective minimum distance between embedded points. Visible when setting 'Method' as 'UMAP'.",
 						"Metric": "The metric name used for distance computation. Visible when setting 'Method' as 'UMAP' or 't-SNE'.",
-						"Cell Reclustering": "Display or hide the inputs about dimension reduction.",
-						"Method": "The cluster algorithm (Louvain or Leiden) used to clustering cells.",
+						"Cell Reclustering": "Display or hide the inputs for cell reclustering.",
+						"Method": "The clustering algorithm (Louvain or Leiden) used to cluster cells.",
 						"Resolution": "The resolution for cell clustering results."
 					}
 				},
 				"example": [
 					{
 						"video": "../assets/video/document_CR_recluster.mp4",
-						"title": "Re-cluster cell",
+						"title": "Re-cluster cells",
 						"description": ""
 					}
 				]
@@ -665,7 +666,7 @@ document = {
 						"video": "../assets/video/document_CR_MD.mp4",
 						"title": "Annotation Update",
 						"description": """
-							the Annotation Update function replaces the cell annotation from source data with the annotation of cells from subset data.
+							The Annotation Update function replaces the cell annotations in the source data with the annotations of cells from the subset data.
 						"""
 					}
 				]
