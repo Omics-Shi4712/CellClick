@@ -1,0 +1,3 @@
+[submodule "benchmarks/src/SOAR"]
+	path = benchmarks/src/SOAR
+	url = git@github.com:aicb-ZhangLabs/SOAR.git
