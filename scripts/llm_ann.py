@@ -437,19 +437,24 @@ def build_cell_score_llm_annotation_prompt(
 def _extract_text_from_response(response):
     if isinstance(response, str):
         return response
+    if response is None:
+        return ""
     if isinstance(response, dict):
-        if "content" in response:
-            return response["content"]
-        if "text" in response:
-            return response["text"]
-    if hasattr(response, "output_text"):
-        return response.output_text
+        for key in ("output_text", "text", "content"):
+            if response.get(key) is not None:
+                return _extract_text_from_response(response[key])
+    if isinstance(response, (list, tuple)):
+        return "".join(_extract_text_from_response(item) for item in response)
+    if hasattr(response, "output_text") and response.output_text is not None:
+        return _extract_text_from_response(response.output_text)
+    if hasattr(response, "text") and response.text is not None:
+        return _extract_text_from_response(response.text)
     if hasattr(response, "choices"):
         choice = response.choices[0]
         if hasattr(choice, "message") and hasattr(choice.message, "content"):
-            return choice.message.content
+            return _extract_text_from_response(choice.message.content)
         if hasattr(choice, "text"):
-            return choice.text
+            return _extract_text_from_response(choice.text)
     return str(response)
 
 
@@ -748,7 +753,10 @@ def evaluate_processor_cell_score(
     top_n=5,
     max_genes=50,
 ):
-    figure, plotDf, marker_cosg = processor.buildCellScorePlot(
+    from scripts.adata_processor.annotation_eval import build_cell_score_plot
+
+    figure, plotDf, marker_cosg = build_cell_score_plot(
+        processor,
         cellIDs,
         annotation,
         markerDict,
