@@ -951,6 +951,23 @@ class AdataProcessor(object):
 
         return figure, overlapDf
 
+    def _load_marker_weight(self, marker_ref_path):
+        """Load the CellClick reference marker-weight matrix from a MAT file."""
+        from scipy import io
+
+        loaded_data = io.loadmat(marker_ref_path)
+        return pd.DataFrame(
+            loaded_data["data"].todense(),
+            index=[value[0] for value in loaded_data["index"][0]],
+            columns=[value[0] for value in loaded_data["columns"][0]],
+        )
+
+    def MarkerGeneScores_cal(self, *args, **kwargs):
+        """Calculate reference marker scores using the extracted evaluation helper."""
+        from scripts.adata_processor.annotation_eval import MarkerGeneScores_cal
+
+        return MarkerGeneScores_cal(self, *args, **kwargs)
+
     def returnColorDotPlot(self, cellCluster, groupBySeries, overlapDf, cellType):
         adata = self.adata
         adata.obs["group_by"] = groupBySeries

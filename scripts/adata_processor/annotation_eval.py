@@ -22,26 +22,23 @@ def _ordered_intersection(left, right):
 
 
 def _benjamini_hochberg(p_values):
+    """Adjust a set of p-values while controlling the false discovery rate."""
     p_values = np.asarray(p_values, dtype=float)
     if len(p_values) == 0:
         return p_values
 
-    clean_p = np.where(np.isfinite(p_values), p_values, 1.0)
-    order = np.argsort(clean_p)
-    q_values = np.empty_like(clean_p)
-    running_min = 1.0
+    clean_p_values = np.where(np.isfinite(p_values), p_values, 1.0)
+    order = np.argsort(clean_p_values)
+    q_values = np.empty_like(clean_p_values)
+    running_minimum = 1.0
 
-    for rank in range(len(clean_p), 0, -1):
-        idx = order[rank - 1]
-        candidate = clean_p[idx] * len(clean_p) / rank
-        running_min = min(running_min, candidate)
-        q_values[idx] = min(running_min, 1.0)
+    for rank in range(len(clean_p_values), 0, -1):
+        index = order[rank - 1]
+        adjusted_value = clean_p_values[index] * len(clean_p_values) / rank
+        running_minimum = min(running_minimum, adjusted_value)
+        q_values[index] = min(running_minimum, 1.0)
 
     return q_values
-
-
-def _sigmoid(x):
-    return 1.0 / (1.0 + np.exp(-np.asarray(x, dtype=float)))
 
 
 def _build_gene_frequency_series(geneWeight_full):
@@ -127,54 +124,16 @@ def _build_null_summary(observed_scores, null_scores, candidate_labels):
     observed_values = observed_scores.reindex(candidate_labels).fillna(0.0).values
     if null_scores.size == 0:
         p_values = np.ones(len(candidate_labels), dtype=float)
-        q_values = np.ones(len(candidate_labels), dtype=float)
-        null_mean = np.zeros(len(candidate_labels), dtype=float)
-        null_std = np.zeros(len(candidate_labels), dtype=float)
     else:
-        null_mean = null_scores.mean(axis=0)
-        null_std = null_scores.std(axis=0, ddof=1) if null_scores.shape[0] > 1 else np.zeros(null_scores.shape[1])
         p_values = (1.0 + (null_scores >= observed_values).sum(axis=0)) / (null_scores.shape[0] + 1.0)
-        q_values = _benjamini_hochberg(p_values)
-
-    z_score = (observed_values - null_mean) / (null_std + 1e-12)
-    score_gap = np.full(len(candidate_labels), np.nan, dtype=float)
-    if len(observed_scores) > 1:
-        sorted_scores = observed_scores.reindex(candidate_labels).sort_values(ascending=False)
-        sorted_values = sorted_scores.values
-        gap_values = np.empty_like(sorted_values)
-        gap_values[:-1] = sorted_values[:-1] - sorted_values[1:]
-        gap_values[-1] = sorted_values[-1]
-        score_gap = pd.Series(gap_values, index=sorted_scores.index).reindex(candidate_labels).values
-
-    relative_margin = score_gap / (observed_values + 1e-12)
-    evidence_score = _sigmoid(((-np.log10(p_values + 1e-12)) - 1.0) / 1.5)
-    specificity_score = _sigmoid((relative_margin - 0.10) / 0.05)
-    annotation_confidence = 0.6 * evidence_score + 0.4 * specificity_score
-
-    confidence_label = []
-    for q_value, rel_margin in zip(q_values, relative_margin):
-        if q_value < 0.01 and rel_margin >= 0.10:
-            confidence_label.append("high")
-        elif q_value < 0.05 and rel_margin >= 0.05:
-            confidence_label.append("moderate")
-        else:
-            confidence_label.append("low")
+    q_values = _benjamini_hochberg(p_values)
 
     return pd.DataFrame(
         {
             "candidate_reference_cell_type": candidate_labels,
             "observed_score": observed_values,
-            "null_mean": null_mean,
-            "null_std": null_std,
-            "z_score": z_score,
             "p_value": p_values,
             "q_value": q_values,
-            "score_gap": score_gap,
-            "relative_margin": relative_margin,
-            "evidence_score": evidence_score,
-            "specificity_score": specificity_score,
-            "annotation_confidence": annotation_confidence,
-            "confidence_label": confidence_label,
         }
     )
 

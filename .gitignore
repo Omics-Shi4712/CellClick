@@ -13,3 +13,4 @@ __pycache__
 AGENTS.md
 
 ./article_codex/
+./benchmarks/outputs/
